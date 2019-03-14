@@ -1,6 +1,6 @@
 # uni-app-topMenu
 
-#自己写的顶部菜单切换 不喜勿喷
+##自己写的顶部菜单切换 不喜勿喷
 
  mh-segmentbar.vue为顶部菜单
  
@@ -8,16 +8,20 @@
  
  index页引用时：
 
-import mh_segmentbar from "../../components/mh-segmentbar/mh-segmentbar.vue" //顶部菜单
-import swiperContent from "../swiperContent/swiperContent.vue"   //页面内容
+####引入顶部菜单
+import mh_segmentbar from "../../components/mh-segmentbar/mh-segmentbar.vue"
+####引入页面内容
+import swiperContent from "../swiperContent/swiperContent.vue"  
 
-#
-components: {
+
+##关于作者
+
+```javascript
+在index中
+ components: {
     mh_segmentbar,
     swiperContent
 },
-
-
 ####  选中顶部菜单时 切换视图 #### 
 didSelectTopMenuItem(index){
     this.curMenuIndex = index
@@ -30,6 +34,8 @@ changeSwipe(event){
     this.curMenuIndex = cuIndex
     this.$refs.segmentbar.didSelectItem(cuIndex)
 },
+
+```
 
 
 
