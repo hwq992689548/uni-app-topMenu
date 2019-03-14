@@ -2,7 +2,7 @@
 	<view>
 		<view v-for="(item, index) in datas" v-bind:key="item.id">
 			<view  v-if="index != 0" style="width: 100%; height: 20upx; background-color: #EEEEEE;"></view>
-			<view class="viewStyle" @click="didSelectItem(item)">
+			<view class="viewStyle" >
 				<image src="../../static/logo.png" style="width: 100%; min-height: 480upx;" mode="aspectFit"></image>
 				<view style="width: 100%; height: 2upx; background-color: #EEEEEE;"></view>
 				<view class="bottomViewStyle">
