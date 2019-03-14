@@ -1,9 +1,6 @@
 <template>
 	<view class="content">
 		<view style="overflow: inherit; background-color: #333333; color: black; width: 100%;  position: fixed; z-index: 999;">
-			<!-- #ifdef APP-PLUS -->
-			<view style="width: 100%; height: 40upx; background-color: red;"></view>
-			<!-- #endif --> 
 			<mh_segmentbar  :curIndex=curMenuIndex :menuData = "topMenuDatas" style="width: 100%;overflow: hidden;" ref="segmentbar" @didSelectTopMenuItem="didSelectTopMenuItem" />
 		</view>
 	
