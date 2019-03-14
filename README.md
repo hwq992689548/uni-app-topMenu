@@ -2,7 +2,8 @@
 
 ##自己写的顶部菜单切换 不喜勿喷
 
-
+效果1
+![效果1](https://github.com/hwq992689548/uni-app-topMenu/blob/master/1.png?raw=true)
 
  mh-segmentbar.vue为顶部菜单
  
