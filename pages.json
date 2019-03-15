@@ -4,12 +4,20 @@
         {
             "path" : "pages/index/index",
             "style" : {
-                "navigationBarTitleText" : "uni-app"
+                "navigationBarTitleText" : "uni-app",
+				"enablePullDownRefresh":true, //开启下拉刷新
+				 "app-plus":{
+					"titleNView": true,
+					"scrollIndicator":"false",
+					"pullToRefresh":{
+						"style":"circle"
+					}
+				}
             }
         },
         {
-            "path" : "pages/swiperContent/swiperContent",
-            "style" : {}
+            "path" : "pages/swiperContent/swiperContent"
+            
         }
     ],
     "globalStyle" : {

@@ -1,7 +1,7 @@
 <template>
 	<view>
 		<view v-for="(item, index) in datas" v-bind:key="item.id">
-			<view  v-if="index != 0" style="width: 100%; height: 20upx; background-color: #EEEEEE;"></view>
+			<!-- <view  v-if="index != 0" style="width: 100%; height: 20upx; background-color: #EEEEEE;"></view> -->
 			<view class="viewStyle" >
 				<image src="../../static/logo.png" style="width: 100%; min-height: 480upx;" mode="aspectFit"></image>
 				<view style="width: 100%; height: 2upx; background-color: #EEEEEE;"></view>
@@ -16,7 +16,6 @@
 					</view>
 				</view>
 			</view>
-			
 		</view>
 	</view>
 
@@ -26,9 +25,10 @@
 <script>
 	export default {
 		name: "swiperContent",
-		props: [
-			"cellData"
-		],
+		props: {
+			
+		},
+		
 		data() {
 			return {
 				datas: [{
@@ -36,12 +36,43 @@
 					"url": "",
 					"id": "123",
 					"time": "200",
-					"title": "标题",
+					"title": "我是第一页",
+					"sub_title": "副标题"
+					
+				},
+				{
+					"name": "",
+					"url": "",
+					"id": "222",
+					"time": "200",
+					"title": "我是第fg页",
 					"sub_title": "副标题"
 					
 				}]
-
 			};
+		},
+		
+		methods:{
+			/* 展示页面  
+				在此可判断data是否为空， 
+				为空就去请求数据 
+				this.$emit("onStartRefreash")
+			*/
+			willShowPage(param){
+				console.log( "第" + param + "页面展示")
+			},
+			
+			/* 刷新 */
+			refreashData(param){
+				let msg = "你刷新的是第" + param + "页"
+				uni.showToast({
+					title:msg
+				})
+				
+				setTimeout(()=>{
+					this.$emit("onEndRefreash")
+				}, 2000)
+			}
 		}
 	}
 </script>
