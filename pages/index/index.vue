@@ -6,14 +6,19 @@
 		</view>
 
 
-		<view style="width: 100%; flex: 1;  position: absolute; top: 100upx; bottom: 0upx; z-index: 3;">
-			<swiper style="width: 100%; height: 100%; background-color: #F5F5F5;" duration="300" :current="curMenuIndex" @change="changeSwipe">
-				<swiper-item v-for="(menuItem) in topMenuDatas" v-bind:key="menuItem.id" style="overflow-y: scroll;">
-					<view>
+		<view style="width: 100%; flex: 1;  height: 100%; z-index: 3;">
+			<swiper style="width: 100%; height: 100%; background-color: #F5F5F5;  position: absolute; top: 140upx; " duration="300" :current="curMenuIndex" @change="changeSwipe">
+				<swiper-item  v-for="(menuItem) in topMenuDatas" v-bind:key="menuItem.id" style="overflow-y: scroll;">
+					<view style="flex: 1;">
 						<swiperContent ref="childView" @onStartRefreash="onStartRefreash" @onEndRefreash="onEndRefreash"> </swiperContent>
 					</view>
 				</swiper-item>
 			</swiper>
+			<!-- <scroll-view style=" flex: 1; overflow-y: scroll;  min-width: 100%; position: absolute; top: 140upx; "> 
+				<view style="flex: 1;"> 
+					<swiperContent ref="childView" @onStartRefreash="onStartRefreash" @onEndRefreash="onEndRefreash"> </swiperContent>
+				</view>
+			</scroll-view> -->
 		</view>
 	</view>
 </template>
@@ -28,14 +33,16 @@
 			swiperContent
 		},
 		onLoad() {
-
+			
 		},
-
-		onPullDownRefresh() {
-			setTimeout(() => {
-				uni.stopPullDownRefresh()
-			}, 3000)
+		onShow() {
+			
 		},
+// 		onPageScroll: function(Object) {  
+// 			console.log("index页")
+// 			conole.log(Object.scrollTop);//实时获取到滚动的值  
+// 		},
+		  
 		data() {
 			return {
 				topMenuDatas: [{
@@ -112,6 +119,7 @@
 
 
 <style>
+	
 	.content {
 		flex: 1;
 		display: flex;

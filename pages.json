@@ -7,7 +7,7 @@
                 "navigationBarTitleText" : "uni-app",
 				"enablePullDownRefresh":true, //开启下拉刷新
 				 "app-plus":{
-					"titleNView": true,
+					// "titleNView": true,
 					"scrollIndicator":"false",
 					"pullToRefresh":{
 						"style":"circle"
