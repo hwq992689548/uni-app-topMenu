@@ -1,0 +1,8 @@
+{
+  "navigationBarTitleText": "uni-app",
+  "enablePullDownRefresh": true,
+  "scrollIndicator": "false",
+  "pullToRefresh": {
+    "style": "circle"
+  }
+}
