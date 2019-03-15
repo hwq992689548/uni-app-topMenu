@@ -26,7 +26,6 @@
 <script>
 	import mh_segmentbar from "../../components/mh-segmentbar/mh-segmentbar.vue"
 	import swiperContent from "../swiperContent/swiperContent.vue"
-	// let topMenuResponse = "{\"code\":200,\"name\":\"OK\",\"message\":\"success\",\"data\":{\"fixTags\":[{\"fixid\":5,\"name\":\"推荐\"},{\"fixid\":3,\"name\":\"专题\"},{\"fixid\":1,\"name\":\"最新\"},{\"fixid\":2,\"name\":\"最热\"},{\"fixid\":6,\"name\":\"女优\"}],\"mytags\":[{\"id\":10055,\"name\":\"野外\"},{\"id\":10058,\"name\":\"厨房\"},{\"id\":10302,\"name\":\"酒店\"},{\"id\":10307,\"name\":\"泳池\"},{\"id\":10342,\"name\":\"中国大陆\"},{\"id\":10070,\"name\":\"女学生\"},{\"id\":10340,\"name\":\"无码\"}],\"orther\":[{\"id\":10293,\"name\":\"人妻\\/少妇\"},{\"id\":10187,\"name\":\"乳交\"},{\"id\":10291,\"name\":\"长腿\"},{\"id\":10278,\"name\":\"爆射\"},{\"id\":10170,\"name\":\"舔阴\"},{\"id\":10169,\"name\":\"吞精\"},{\"id\":10163,\"name\":\"口交\"},{\"id\":10161,\"name\":\"多P\"},{\"id\":10160,\"name\":\"69\"},{\"id\":10343,\"name\":\"中文字幕\"},{\"id\":10350,\"name\":\"欧美\"}]}}"
 	export default {
 		components: {
 			mh_segmentbar,
