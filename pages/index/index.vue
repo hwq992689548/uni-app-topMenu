@@ -1,24 +1,22 @@
 <template>
 	<view class="content">
-		<view style="overflow: inherit; background-color: #333333; color: black; width: 100%;  position: fixed; z-index: 999;">
+		<view style=" background-color: #333333; color: black; width: 100%; position: fixed; height: 100upx;  z-index: 999;">
 			<mh_segmentbar v-bind:curIndex=curMenuIndex :menuData="topMenuDatas" style="width: 100%;overflow: hidden;" ref="segmentbar"
 			 @didSelectTopMenuItem="didSelectTopMenuItem" />
-		</view>
-
-
-		<view style="width: 100%; flex: 1;  height: 100%; z-index: 3;">
-			<swiper style="width: 100%; height: 100%; background-color: #F5F5F5;  position: absolute; top: 140upx; " duration="300" :current="curMenuIndex" @change="changeSwipe">
-				<swiper-item  v-for="(menuItem) in topMenuDatas" v-bind:key="menuItem.id" style="overflow-y: scroll;">
-					<view style="flex: 1;">
+		</view>		
+		<!-- spaceView -->
+		<!-- <view style=" width: 100%; height: 100upx;"></view> -->
+		<view style=" width: 100%; margin-top: 100upx; height: 94%; position: absolute;">
+			<swiper style=" width: 100%; position: absolute; overflow: scroll; height: 100% ;"
+			 duration="300" :current="curMenuIndex" @change="changeSwipe" >
+				
+				<swiper-item v-for="(menuItem) in topMenuDatas" v-bind:key="menuItem.id" style="overflow: overlay; flex: 1; height: 100%;">
+					<scroll-view style=" width: 100%; height: 100%;" scroll-y="true" @scroll="scrollToppp">
 						<swiperContent ref="childView" @onStartRefreash="onStartRefreash" @onEndRefreash="onEndRefreash"> </swiperContent>
-					</view>
+						
+					</scroll-view>
 				</swiper-item>
-			</swiper>
-			<!-- <scroll-view style=" flex: 1; overflow-y: scroll;  min-width: 100%; position: absolute; top: 140upx; "> 
-				<view style="flex: 1;"> 
-					<swiperContent ref="childView" @onStartRefreash="onStartRefreash" @onEndRefreash="onEndRefreash"> </swiperContent>
-				</view>
-			</scroll-view> -->
+			</swiper> 
 		</view>
 	</view>
 </template>
@@ -32,16 +30,12 @@
 			swiperContent
 		},
 		onLoad() {
-			
+
 		},
 		onShow() {
-			
+
 		},
-// 		onPageScroll: function(Object) {  
-// 			console.log("index页")
-// 			conole.log(Object.scrollTop);//实时获取到滚动的值  
-// 		},
-		  
+	
 		data() {
 			return {
 				topMenuDatas: [{
@@ -61,7 +55,7 @@
 					"name": "最扣扣的"
 				}, {
 					"id": 11,
-					"name": "最皮的"
+					"name": "最皮的" 
 				}, {
 					"id": 12,
 					"name": "最不要脸的"
@@ -76,10 +70,11 @@
 
 			}
 		},
-
+ 
 		/* 刷新  将刷新的页面索引传到content子页面中 在子页面进行请求*/
 		onPullDownRefresh() {
 			this.$refs.childView[this.curMenuIndex].refreashData(this.curMenuIndex) //传入页面 
+			
 		},
 
 		methods: {
@@ -95,22 +90,25 @@
 			changeSwipe(event) {
 				let cuIndex = event.detail.current
 				this.$refs.segmentbar.didSelectItem(cuIndex) //改变顶部
-				
+
 				//在页面切换的时候停止刷新 
 				this.onEndRefreash()
-				this.$refs.childView[cuIndex].willShowPage(cuIndex)  //如果不想在子页面请求数据， 在本页请求数据后再传入子页面也行  
+				this.$refs.childView[cuIndex].willShowPage(cuIndex) //如果不想在子页面请求数据， 在本页请求数据后再传入子页面也行  
 			},
-			
-			
+
+
 			/* 子页面主动请求刷新 */
-			onStartRefreash(){
+			onStartRefreash() {
 				uni.startPullDownRefresh()
 			},
-			
+
 			/* 停止刷新 */
 			onEndRefreash() {
 				uni.stopPullDownRefresh()
 			},
+			scrollToppp(e) {
+				//检测scrollView是否滑到顶部  在此可设置刷新开关 currentWebView设置
+			}
 		}
 
 	}
@@ -118,11 +116,36 @@
 
 
 <style>
-	
 	.content {
 		flex: 1;
-		display: flex;
+
 		width: 100%;
 		background-color: green;
+		overflow: hidden;
+	}
+
+
+	.nowrap {
+
+		white-space: nowrap;
+
+		overflow-x: scroll;
+
+		height: 200px;
+
+	}
+
+	.item-t {
+
+		display: inline-block;
+
+		width: 100%;
+
+		height: 200px;
+
+		background: yellow;
+
+		vertical-align: top;
+
 	}
 </style>
